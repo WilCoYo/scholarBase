@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>scholarBase</title>
+</head>
+<body id="body">
+    
+
+    <div class="title-and-searchbar">
+        <h1 class="title-header"><em style="color:#fff">scholar</em><strong style="color:#EB5080">Base</strong></h1>
+        <form>
+            <input type="text" id="search" name="search" placeholder="Search Articles">
+            <button type="submit">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </form>
+        <nav>
+            <a href="#">Full Library</a>
+            <a href="#">Bookmarked Articles</a>
+        </nav>
+    </div>
+    <script>
+        VANTA.NET({
+          el: "body",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00
+        })
+        </script>
+</body>
+</html>
