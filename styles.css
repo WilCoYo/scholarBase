@@ -68,12 +68,12 @@ nav a:hover {
 
 @media only screen and (max-width: 27.19rem) {
     #search {
-        font-size: 1rem;
+        font-size: 1.5rem;
         padding-right: 1rem;
     }
 
     .hero-section button {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
 
 }
