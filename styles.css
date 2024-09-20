@@ -57,9 +57,15 @@ nav a:hover {
 }
 
 
-
-
-@media only screen and (max-width: 27.19rem) {
- 
-
+.footer {
+    position: fixed;
+    bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    color: #fff;
 }
+
+
+/* @media only screen and (max-width: 27.19rem) {
+ 
+} */
