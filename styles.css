@@ -4,45 +4,62 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 
-.title-and-searchbar {
+.hero-section {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: block;
     width: 100%;
+    align-content: center;
+    text-align: center;
+}
+
+.hero-section form {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+
+.navigation {
+    margin-top: 1rem;
+    text-align: center;
 }
 
 #search {
     font-size: 2rem;
 }
 
-.title-and-searchbar button {
+.hero-section button {
     font-size: 2rem;
 }
 
-.title-and-searchbar button:hover {
+.hero-section button:hover {
     cursor: pointer;
 }
 
-nav {
-    display: flex;
-    width: 15%;
-    justify-content: space-between;
-    padding-top: 1rem;
-    
-}
 
-nav a {
+
+.navigation a {
     text-decoration: none;
     color: #fff;
+    padding: 1rem;
 }
 
 nav a:hover {
     color: #EB5080;
 }
 
+
+
+
+@media only screen and (max-width: 27.19rem) {
+    .title-and-searchbar {
+       
+    }
+
+}
