@@ -90,16 +90,16 @@
 --     8
 -- );
 
-INSERT INTO article_researchers (
-    article_doi, 
-    researcher_id
-)
-VALUES (
--- doi
-    'https://doi.org/10.1016/j.ijresmar.2018.03.004',
--- researcher_id
-    9
-);
+-- INSERT INTO article_researchers (
+--     article_doi, 
+--     researcher_id
+-- )
+-- VALUES (
+-- -- doi
+--     'https://doi.org/10.1016/j.ijresmar.2018.03.004',
+-- -- researcher_id
+--     9
+-- );
 
 
 
@@ -132,3 +132,10 @@ VALUES (
 --     researchers r ON ar.researcher_id = r.id
 -- WHERE
 --     a.doi = 'https://doi.org/10.1108/MIP-11-2018-0533';
+
+
+SELECT *,
+        ts_rank(to_tsvector(article_name || ' ' || coalesce(abstract,  '')), websearch_to_tsquery('brand')) as rank
+FROM articles
+WHERE to_tsvector(article_name || ' ' || coalesce(abstract,  '')) @@ websearch_to_tsquery('brand')
+ORDER BY rank desc;
