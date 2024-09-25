@@ -9,21 +9,24 @@ $search = $_POST["search"];
 
 
 
-$host = "localhost";
-$dbname = "scholarBase";
+// Railway Database connection details
+$host = "junction.proxy.rlwy.net";
+$port = "13831";
+$dbname = "railway";
 $username = "postgres";
-$password = "Tsuki0607!!";
+$password = "osWIvKOKCJUWIsxkQBBVTKYwYcjVypDw";
 
 
 
-$conn_string = "host=$host dbname=$dbname user=$username password=$password";
+$conn_string = "host=$host port=$port dbname=$dbname user=$username password=$password";
 $conn = pg_connect($conn_string);
 
+
+
+// Check if the connection was successful
 if (!$conn) {
     die("Connection failed: " . pg_last_error());
 }
-
-// echo "Connection successful. ";
 
 
 
@@ -72,3 +75,5 @@ if (!$result) {
 
 // Close the connection
 pg_close($conn);
+
+

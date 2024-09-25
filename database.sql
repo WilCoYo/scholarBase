@@ -9,15 +9,15 @@
 -- )
 -- VALUES (
 -- -- doi
---     'https://doi.org/10.1177/26317877221079340',
+--     'https://doi.org/10.1016/j.ijresmar.2018.03.004',
 -- -- article name
---     'Optimal Distinctiveness: On Being the Same and Different',
+--     'Advertising non-premium products as if they were premium: The impact of advertising up on advertising elasticity and brand equity',
 -- -- journal name
---     'Organizational Theory',
+--     'International Journal of Research in Marketing',
 -- -- publication year
---     2022,
+--     2018,
 -- -- abstract
---     'Optimal distinctiveness is a theory that emphasizes actors’ drive to be both “the same and different at the same time” (Brewer, 1991, p. 475). Originating as an approach to explain individuals’ self-construals, the theory has expanded over time to embrace the organizational level and beyond, becoming a major area of research where organization theorists and strategy scholars can converse. In this paper, we briefly review the historical and contemporaneous approaches to optimal distinctiveness and note an increasing trend of contextualizing optimal distinctiveness. While encouraging, this trend has fallen short of accounting for four important contingencies that significantly shape optimal distinctiveness and its underpinning mechanisms: organizational hybridity, societal culture, temporal contingencies, and benchmarks for gauging optimal distinctiveness. We discuss these four contingencies and propose corresponding conversation starters to guide future research. These conversation starters have the potential of further enhancing our understanding of optimal distinctiveness, broadening optimal distinctiveness scholarship into new domains, and helping inform and resolve challenges organizations face in pursuing optimal distinctiveness.'
+--         'Non-premium brands occasionally emulate their premium counterparts by using ads that emphasize premium characteristics such as superior performance and exclusivity. We define this practice as “advertising up” and develop hypotheses about its short- and long-term impact on advertising elasticity and brand equity respectively. We test the hypotheses in two large-scale empirical studies using a comprehensive dataset from the automotive industry that includes, among others, the content of 2317 television ads broadcast over a period of 45 months. The results indicate that advertising up increases (decreases) short-term advertising elasticity for non-premium products with a low (high) market share. The results also show that an intensive use of advertising up over time leads to long-term improvements (reductions) in brand equity for expensive (cheap) non-premium products. Furthermore, an inconsistent use of advertising up leads to reductions in brand equity. The results imply that managers of non-premium products with a low market share can use advertising up to increase advertising effectiveness in the short run. However, advertising up will only generate long-term improvements in brand equity for expensive non-premium products. Finally, to avoid long-term reductions in brand equity, advertising up should be consistently used over time.'
 -- )
 -- ON CONFLICT (doi) DO NOTHING;
 
@@ -36,11 +36,12 @@
 -- -- id
 --     default,
 -- -- researcher name
---     'Eric Yanfei Zhao',
+--     'Ivan A. Guitart',
 -- -- university
---     'Indiana University'
+--     'EM-Lyon Business School'
 -- )
 -- ON CONFLICT (researcher_name) DO NOTHING;
+
 
 
 -- INSERT INTO researchers (
@@ -52,9 +53,9 @@
 -- -- id
 --     default,
 -- -- researcher name
---     'Mary Ann Glynn',
+--     'Jorge Gonzalez',
 -- -- university
---     'Boston College'
+--     'University of Navarra'
 -- )
 -- ON CONFLICT (researcher_name) DO NOTHING;
 
@@ -67,9 +68,9 @@
 -- -- id
 --     default,
 -- -- researcher name
---     'Hatice Aydın',
+--     'Stefan Stremersch',
 -- -- university
---     'Mus Alparslan University'
+--     'University of Navarra'
 -- )
 -- ON CONFLICT (researcher_name) DO NOTHING;
 
@@ -85,9 +86,9 @@
 -- )
 -- VALUES (
 -- -- doi
---     'https://doi.org/10.1177/26317877221079340',
+--     'https://doi.org/10.1016/j.ijresmar.2018.03.004',
 -- -- researcher_id
---     8
+--     4
 -- );
 
 -- INSERT INTO article_researchers (
@@ -134,8 +135,11 @@
 --     a.doi = 'https://doi.org/10.1108/MIP-11-2018-0533';
 
 
-SELECT *,
-        ts_rank(to_tsvector(article_name || ' ' || coalesce(abstract,  '')), websearch_to_tsquery('brand')) as rank
-FROM articles
-WHERE to_tsvector(article_name || ' ' || coalesce(abstract,  '')) @@ websearch_to_tsquery('brand')
-ORDER BY rank desc;
+-- SELECT *,
+--         ts_rank(to_tsvector(article_name || ' ' || coalesce(abstract,  '')), websearch_to_tsquery('eWOM')) as rank
+-- FROM articles
+-- WHERE to_tsvector(article_name || ' ' || coalesce(abstract,  '')) @@ websearch_to_tsquery('eWOM')
+-- ORDER BY rank desc;
+
+
+

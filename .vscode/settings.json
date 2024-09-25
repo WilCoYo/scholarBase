@@ -9,6 +9,16 @@
             "database": "scholarBase",
             "username": "postgres",
             "password": "Tsuki0607!!"
+        },
+        {
+            "previewLimit": 50,
+            "server": "postgres-squd.railway.internal",
+            "driver": "PostgreSQL",
+            "name": "postgres",
+            "database": "railway",
+            "username": "postgres",
+            "password": "osWIvKOKCJUWIsxkQBBVTKYwYcjVypDw",
+            "connectString": "postgresql://postgres:osWIvKOKCJUWIsxkQBBVTKYwYcjVypDw@junction.proxy.rlwy.net:13831/railway"
         }
     ]
 }
