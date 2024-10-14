@@ -10,8 +10,8 @@ $search = $_POST["search"];
 
 
 // Railway Database connection details
-$host = "junction.proxy.rlwy.net";
-$port = "13831";
+$host = "junction.proxy.rlwy.net:13831";
+$port = "5432";
 $dbname = "railway";
 $username = "postgres";
 $password = "osWIvKOKCJUWIsxkQBBVTKYwYcjVypDw";
