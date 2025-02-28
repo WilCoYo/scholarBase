@@ -25,21 +25,39 @@
                 }
         }
 
-        input {
-            width: 40rem;
-            padding: 1rem;
-            border-radius: 1.5rem;
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            input {
+                width: 40rem;
+                padding: 1rem;
+                border-radius: 1.5rem;
+            }
+    
+            .searchBtn {
+                margin: 1rem;
+                padding: .5rem 2rem;
+                border-radius: 2rem;
+                width: 8rem;
+
+            }
+    
+            .searchBtn:hover {
+                cursor: pointer;
+                background-color: #f83c7ea1;
+            }
+
         }
 
-        .searchBtn {
-            margin: 1rem;
-            padding: .5rem 2rem;
-            border-radius: 2rem;
+        .results-container {
+            color: white;
         }
 
-        .searchBtn:hover {
-            cursor: pointer;
-            background-color: #f83c7ea1;
-        }
+        
+
+
+
 }
 

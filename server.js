@@ -1,13 +1,13 @@
-import express from 'express';
-import { MongoClient, ServerApiVersion  } from "mongodb";
-import cors from 'cors';
+const express = require('express');
+const { MongoClient, ServerApiVersion  } = require("mongodb");
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 //Middleware
-app.use(cros());
+app.use(cors());
 app.use(express.json());
 
 
@@ -58,6 +58,7 @@ app.get('/api/search', async (req, res) => {
             $text: { $search: searchTerm }
         };
 
+     
         const results = await articlesCollection.find(query).limit(20).toArray();
         res.json(results);
     } catch(error) {
