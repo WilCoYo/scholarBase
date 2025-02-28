@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+        h1 {
+            color: white;
+            z-index: 5;
+            font-family: "Roboto", serif;
+            font-size: 2.5rem;
+        
+                strong {
+                    color: #F83C7F; 
+                    font-size: 3rem;
+                }
+        }
+
+        input {
+            width: 40rem;
+            padding: 1rem;
+            border-radius: 1.5rem;
+        }
+}
+
