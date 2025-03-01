@@ -3,13 +3,12 @@ import './Home.css'
 
 
 
-function Home() {
+function Home({}) {
 
 const [searchTerm, setSearchTerm ] = useState('')
 const [searchResults, setSearchResults] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const [error, setError] = useState(null);
-
 
 
 
@@ -22,7 +21,7 @@ const handleSearch = async () => {
 
 try {
     const response = await fetch(`http://localhost:5000/api/search?term=${encodeURIComponent(searchTerm)}`);
-
+    
     if(!response.ok) {
         throw new Error('Search failed');
     }
@@ -37,22 +36,28 @@ try {
 }
 
 }
+
+   // Helper function to render researchers (assuming researchers is an array of objects)
+   const renderResearchers = (researchers) => {
+    return researchers.map((researcher, index) => (
+      <div key={index}>
+        <strong>{researcher.name}</strong>: <em>{researcher.university}</em>
+      </div>
+    ));
+  };
+
   return (
     <div className='home-page'>
         <h1>scholar<strong>Base</strong></h1>
         <div className='search-container'>
             <input 
-                type='text'
-                placeholder='Search database'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch}
+                 type='text'
+                 placeholder='Search database'
+                 value={searchTerm}
+                 onChange={(e) => setSearchTerm(e.target.value)}
+                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             />
-            <button
-                onClick={handleSearch}
-                className='searchBtn'
-                disabled={isLoading}
-            >
+            <button className='searchBtn' disabled={isLoading}>
                 { isLoading ? 'Searching...' : 'Search' }
             </button>
         </div>
@@ -65,6 +70,10 @@ try {
                         <li key={result._id || index} className='result-item'>
                             <h3>{result.articleTitle}</h3>
                             <p>{result.journal} <i>({result.publicationYear})</i></p>
+                            <div>
+                                <h4>Researchers:</h4>
+                                {renderResearchers(result.researchers)}
+                            </div>
                         </li>
                     ))}
                 </ul>
