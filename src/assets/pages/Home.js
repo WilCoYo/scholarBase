@@ -3,11 +3,12 @@ import './Home.css'
 
 
 
-function Home({}) {
+function Home() {
 
 const [searchTerm, setSearchTerm ] = useState('')
 const [searchResults, setSearchResults] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
+// eslint-disable-next-line
 const [error, setError] = useState(null);
 
 
