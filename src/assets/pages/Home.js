@@ -21,10 +21,13 @@ const handleSearch = async () => {
 
 
 try {
-    const response = await fetch(`http://localhost:5000/api/search?term=${encodeURIComponent(searchTerm)}`);
+
+    const apiBaseUrl = process.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+    const response = await fetch(`${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`);
     
     if(!response.ok) {
-        throw new Error('Search failed');
+        const errorText = await response.text();
+        throw new Error(`Search failed with status ${response.status}: ${errorText}`)
     }
 
     const data = await response.json();
