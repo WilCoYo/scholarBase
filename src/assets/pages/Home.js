@@ -20,25 +20,31 @@ const handleSearch = async () => {
     setError(null);
 
 
-try {
+    try {
+        const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+        const searchUrl = `${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`;
+        
+        console.log('Fetching URL:', searchUrl);  // Log the exact URL being called
 
-    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
-    const response = await fetch(`${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`);
-    
-    if(!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Search failed with status ${response.status}: ${errorText}`)
+        const response = await fetch(searchUrl);
+        
+        // Log the raw response for debugging
+        const responseText = await response.text();
+        console.log('Raw Response:', responseText);
+
+        if(!response.ok) {
+            throw new Error(`Search failed with status ${response.status}: ${responseText}`);
+        }
+
+        // Parse the JSON manually
+        const data = JSON.parse(responseText);
+        setSearchResults(data)
+    } catch (err) {
+        setError(`An error occurred while searching: ${err.message}`);
+        console.error('Search error:', err);
+    } finally {
+        setIsLoading(false);
     }
-
-    const data = await response.json();
-    setSearchResults(data)
-} catch (err) {
-    setError("An error occurred while searching. Please try again")
-    console.error('Search error:', err);
-} finally {
-    setIsLoading(false);
-}
-
 }
 
    // Helper function to render researchers (assuming researchers is an array of objects)
