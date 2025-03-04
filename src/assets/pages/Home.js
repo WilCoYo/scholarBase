@@ -22,7 +22,7 @@ const handleSearch = async () => {
 
 try {
 
-    const apiBaseUrl = process.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
     const response = await fetch(`${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`);
     
     if(!response.ok) {
