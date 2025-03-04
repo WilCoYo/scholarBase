@@ -21,7 +21,7 @@ const handleSearch = async () => {
 
 
     try {
-        const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
+        const apiBaseUrl = `https://${process.env.REACT_APP_API_BASE_URL || 'scholarbase-server-production.up.railway.app'}`;
         const searchUrl = `${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`;
         
         console.log('Fetching URL:', searchUrl);  // Log the exact URL being called
