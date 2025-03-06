@@ -56,6 +56,8 @@ const handleSearch = async () => {
     ));
   };
 
+  console.log('API Base URL: ', process.env.REACT_APP_API_BASE_URL);
+
   return (
     <div className='home-page'>
         <h1>scholar<strong>Base</strong></h1>
