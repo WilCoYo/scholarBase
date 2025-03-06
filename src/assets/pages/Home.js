@@ -19,33 +19,64 @@ const handleSearch = async () => {
     setIsLoading(true);
     setError(null);
 
-
     try {
         const apiBaseUrl = `https://${process.env.REACT_APP_API_BASE_URL}`;
         const searchUrl = `${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`;
         
-        console.log('Fetching URL:', searchUrl);  // Log the exact URL being called
+        console.log('Fetching URL:', searchUrl);
 
         const response = await fetch(searchUrl);
         
-        // Log the raw response for debugging
+        // Log more details about the response
+        console.log('Response status:', response.status);
+        console.log('Response headers:', Object.fromEntries([...response.headers]));
+        
         const responseText = await response.text();
-        // console.log('Raw Response:', responseText);
+        console.log('Response first 100 chars:', responseText.substring(0, 100));
 
-        if(!response.ok) {
-            throw new Error(`Search failed with status ${response.status}: ${responseText}`);
+        // Only try to parse if it looks like JSON
+        if (responseText.trim().startsWith('{') || responseText.trim().startsWith('[')) {
+            const data = JSON.parse(responseText);
+            setSearchResults(data);
+        } else {
+            throw new Error('Response is not valid JSON');
         }
-
-        // Parse the JSON manually
-        const data = JSON.parse(responseText);
-        setSearchResults(data)
     } catch (err) {
         setError(`An error occurred while searching: ${err.message}`);
         console.error('Search error:', err);
     } finally {
         setIsLoading(false);
     }
+
+
+//     try {
+//         const apiBaseUrl = `https://${process.env.REACT_APP_API_BASE_URL}`;
+//         const searchUrl = `${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`;
+        
+//         console.log('Fetching URL:', searchUrl);  // Log the exact URL being called
+
+//         const response = await fetch(searchUrl);
+        
+//         // Log the raw response for debugging
+//         const responseText = await response.text();
+//         // console.log('Raw Response:', responseText);
+
+//         if(!response.ok) {
+//             throw new Error(`Search failed with status ${response.status}: ${responseText}`);
+//         }
+
+//         // Parse the JSON manually
+//         const data = JSON.parse(responseText);
+//         setSearchResults(data)
+//     } catch (err) {
+//         setError(`An error occurred while searching: ${err.message}`);
+//         console.error('Search error:', err);
+//     } finally {
+//         setIsLoading(false);
+//     }
 }
+
+
 
    // Helper function to render researchers (assuming researchers is an array of objects)
    const renderResearchers = (researchers) => {
