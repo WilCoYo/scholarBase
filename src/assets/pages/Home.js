@@ -90,7 +90,7 @@ const handleSearch = async () => {
  
   return (
     <div className='home-page'>
-        <h1>scholar<strong>Base</strong></h1>
+        <h1 className='title'>scholar<strong>Base</strong></h1>
         <div className='search-container'>
             <input 
                  type='text'
@@ -111,8 +111,9 @@ const handleSearch = async () => {
                     {searchResults.map((result, index) => (
                         <li key={result._id || index} className='result-item'>
                             <h3>{result.articleTitle}</h3>
-                            <p>{result.journal} <i>({result.publicationYear})</i></p>
-                            <div>
+                            <p><i>{result.journal} ({result.publicationYear})</i></p>
+                            <p>{result.abstract}</p>
+                            <div className='researchers'>
                                 <h4>Researchers:</h4>
                                 {renderResearchers(result.researchers)}
                             </div>

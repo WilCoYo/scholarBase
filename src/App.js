@@ -15,10 +15,8 @@ function App() {
       mouseControls: true,
       touchControls: true,
       gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
       scale: 1.00,
-      scaleMobile: 1.00,
+      scaleMobile: .75,
       color: 0xff3f81,
       backgroundColor: 0x23153c,
       showDots: false
