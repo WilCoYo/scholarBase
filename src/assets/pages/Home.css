@@ -64,10 +64,25 @@
 
 .results-container {
     color: white;
+    width: 95%;
+    max-width: 50rem;
 }
 
 .result-item {
-    margin: 1rem;
+    list-style: none;
+    padding: 1rem;
+    border-radius: 5%;
+    margin: 1rem 0 3rem 0;
+        /* other styles */
+        background: rgba(39, 39, 39, 0.1);
+        backdrop-filter: blur(30px);
+         /* fallback for old browsers */
+        -webkit-backdrop-filter: blur(60px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.result-item h4 {
+    margin-top: 1rem;
 }
 
 .researchers {

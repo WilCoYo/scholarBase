@@ -112,6 +112,7 @@ const handleSearch = async () => {
                         <li key={result._id || index} className='result-item'>
                             <h3>{result.articleTitle}</h3>
                             <p><i>{result.journal} ({result.publicationYear})</i></p>
+                            <h4>Abstract:</h4>
                             <p>{result.abstract}</p>
                             <div className='researchers'>
                                 <h4>Researchers:</h4>
