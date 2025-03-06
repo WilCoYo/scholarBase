@@ -21,7 +21,7 @@ const handleSearch = async () => {
 
 
     try {
-        const apiBaseUrl = `https://${process.env.REACT_APP_API_BASE_URL || 'scholarbase-server-production.up.railway.app'}`;
+        const apiBaseUrl = `https://${process.env.REACT_APP_API_BASE_URL}`;
         const searchUrl = `${apiBaseUrl}/api/search?term=${encodeURIComponent(searchTerm)}`;
         
         console.log('Fetching URL:', searchUrl);  // Log the exact URL being called
@@ -30,7 +30,7 @@ const handleSearch = async () => {
         
         // Log the raw response for debugging
         const responseText = await response.text();
-        console.log('Raw Response:', responseText);
+        // console.log('Raw Response:', responseText);
 
         if(!response.ok) {
             throw new Error(`Search failed with status ${response.status}: ${responseText}`);
