@@ -26,6 +26,10 @@
     font-size: 3rem;
 }
 
+.title:hover {
+    cursor: pointer;
+}
+
 
 .search-container {
     display: flex;
