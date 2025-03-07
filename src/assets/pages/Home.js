@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './Home.css'
 
 
@@ -48,6 +48,8 @@ const handleSearch = async () => {
         setIsLoading(false);
     }
 
+  
+
 
 //     try {
 //         const apiBaseUrl = `https://${process.env.REACT_APP_API_BASE_URL}`;
@@ -76,7 +78,9 @@ const handleSearch = async () => {
 //     }
 }
 
-
+useEffect(() => {
+    handleSearch();
+}, [searchTerm])
 
    // Helper function to render researchers (assuming researchers is an array of objects)
    const renderResearchers = (researchers) => {
