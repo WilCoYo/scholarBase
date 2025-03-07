@@ -81,12 +81,15 @@ useEffect(() => {
         <div className='search-container'>
             <input 
                  type='text'
-                 placeholder='Search database'
+                 placeholder='Search scholarly articles, journals, and researchers'
                  value={searchTerm}
                  onChange={(e) => setSearchTerm(e.target.value)}
                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             />
-            <button className='searchBtn' disabled={isLoading}>
+            <button 
+                className='searchBtn' 
+                disabled={isLoading}
+                onClick={handleSearch}>
                 { isLoading ? 'Searching...' : 'Search' }
             </button>
         </div>
