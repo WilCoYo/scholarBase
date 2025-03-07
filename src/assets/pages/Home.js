@@ -80,6 +80,7 @@ const handleSearch = async () => {
 
 useEffect(() => {
     handleSearch();
+    // eslint-disable-next-line
 }, [searchTerm])
 
    // Helper function to render researchers (assuming researchers is an array of objects)
