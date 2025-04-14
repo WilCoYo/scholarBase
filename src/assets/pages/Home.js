@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import './Home.css'
 
 
@@ -50,10 +50,7 @@ const handleSearch = async () => {
 
 }
 
-useEffect(() => {
-    handleSearch();
-    // eslint-disable-next-line
-}, [searchTerm])
+
 
    // Helper function to render researchers (assuming researchers is an array of objects)
    const renderResearchers = (researchers) => {
@@ -108,6 +105,7 @@ useEffect(() => {
                                 <h4>Researchers:</h4>
                                 {renderResearchers(result.researchers)}
                             </div>
+                            <p>{result.doiLink}</p>
                         </li>
                     ))}
                 </ul>
@@ -119,5 +117,5 @@ useEffect(() => {
     </div>
   )
 }
-
+//test
 export default Home
